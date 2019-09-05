@@ -2,11 +2,22 @@ import XCTest
 @testable import MTDBlogComponents
 
 final class MTDBlogComponentsTests: XCTestCase {
+    
+    // MARK: - Test Variables
+    
+    var blogPost: BlogPost!
+    
+    // MARK: - Setup and Teardown
+    
+    override func setUp() {
+        super.setUp()
+        blogPost = BlogPost(name: "Title", title: "Titkle", subtitle: "Some", background: "Some", created: "Some", updated: "Some")
+    }
+    
+    // MARK: - Tests
+    
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(MTDBlogComponents().text, "Hello, World!")
+        XCTAssertNotNil(blogPost)
     }
 
     static var allTests = [
