@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class BlogPost: Codable {
+open class BlogPost: Codable {
 
     public let name: String
     public let title: String
