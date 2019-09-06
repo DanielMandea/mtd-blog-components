@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct BlogPost: Codable {
+public class BlogPost: Codable {
 
     public let name: String
     public let title: String
