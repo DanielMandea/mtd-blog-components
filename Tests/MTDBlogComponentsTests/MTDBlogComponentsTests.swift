@@ -1,26 +1,47 @@
 import XCTest
 @testable import MTDBlogComponents
 
-final class MTDBlogComponentsTests: XCTestCase {
+class MTDBlogComponentsTests: XCTestCase {
     
     // MARK: - Test Variables
     
-    var blogPost: BlogPost!
+    var sut: BlogPost!
     
     // MARK: - Setup and Teardown
     
     override func setUp() {
         super.setUp()
-        blogPost = BlogPost(name: "Title", title: "Titkle", subtitle: "Some", background: "Some", created: "Some", updated: "Some")
+        do {
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .formatted(DateFormatter.iso8601Full)
+            sut = try decoder.decode(BlogPost.self, from: MockJson.blogPostAndArticle)
+        } catch {
+            print(error)
+        }
+    }
+    
+    override func tearDown() {
+        self.sut = nil
+        super.tearDown()
     }
     
     // MARK: - Tests
     
-    func testExample() {
-        XCTAssertNotNil(blogPost)
+    func testSutIsNotNi() {
+        XCTAssertNotNil(sut)
     }
-
+    
+    func testSutDate() {
+        XCTAssertNotNil(sut.created)
+    }
+    
+    func testSutArticles() {
+        XCTAssertNotNil(sut.articles)
+    }
+    
     static var allTests = [
-        ("testExample", testExample),
+          ("testExample", testSutIsNotNi),
+          ("testSutDate", testSutDate),
+          ("testSutArticles", testSutArticles),
     ]
 }

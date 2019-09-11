@@ -8,11 +8,10 @@
 import Foundation
 
 open class BlogPost: Codable {
-
-    public let name: String
+    public let uniqueID: String
     public let title: String
     public let subtitle: String
-    public let background: String
-    public let created: String
-    public let updated: String?
+    public let thumbnailImageUrl: String?
+    public let created: Date?
+    public let articles: [BlogArticle]?
 }
