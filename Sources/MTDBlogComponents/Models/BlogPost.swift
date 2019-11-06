@@ -20,10 +20,11 @@ open class BlogPost: Codable {
     
     // MARK: - Init 
     
-    public init(uniqueID: String = NSUUID().uuidString, title: String?, subtitle: String?, created: Date = Date()) {
+    public init(uniqueID: String = NSUUID().uuidString, title: String?, subtitle: String?, created: Date = Date(), articles: [BlogArticle]? = nil) {
         self.uniqueID = uniqueID
         self.title = title
         self.subtitle = subtitle
         self.created = created
+        self.articles = articles
     }
 }
